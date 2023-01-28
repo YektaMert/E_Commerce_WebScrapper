@@ -1,0 +1,47 @@
+{% extends 'productListPage/main.html'%}
+{% load static %}
+{% block content %}
+
+	<! -- navbar -- >
+	{% include 'productListPage/partials/_navbar.html' %}
+
+	<div class="container-fluid">
+		
+		<div class="row">
+
+			<! -- filtre alanı -- >
+			<div class="col-2">
+				<div>
+					
+					{% include 'productListPage/partials/_filtre.html' %}
+					
+				</div>
+			</div>
+
+			<! -- sıralama/laptop list -- >
+			<div class="col-10 mt-2">
+
+				<! -- sıralama alanı -- >
+				<div class="row">
+					<div class="col-4">
+						<a href="{% url 'azalanFiyat' %}"><button class="btn btn-outline-success bg-light text-success" type="submit">En Yüksek Fiyat</button></a>
+					</div>
+					<div class="col-4">
+						<a href="{% url 'artanFiyat' %}"><button class="btn btn-outline-success bg-light text-success" type="submit">En Düşük Fiyat</button></a>
+					</div>
+					<div class="col-4">
+						<a href="{% url 'sortHighestPuan' %}"><button class="btn btn-outline-success bg-light text-success" type="submit">En Yüksek Puan</button></a>
+					</div>
+				</div>
+
+				<! -- laptop listesi -- >
+				<div class="mt-2">
+					{% for laptoppack in laptoplar %}
+						{% include 'productListPage/partials/_laptop.html' %}
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock content %}

@@ -1,0 +1,75 @@
+{% extends 'productListPage/main.html'%}
+{% load static %}
+{% block content %}
+<! -- navbar -- >
+	{% include 'productListPage/partials/_navbar.html' %}
+
+    {% for laptop in laptoplar %}
+
+        <div class="container-fluid">
+            <! -- resim/isim/deal alanı -- >
+            <div class="row">
+                <! -- sol tarafa -- >
+                <div class="col-3">
+                    <! -- ürün resmi -->
+                    <div class="row">
+                        {% for deal in laptop.deals %}
+                            <img src={{ deal.foto  }} alt="" class="img-fluid">
+                        {% endfor %}
+                    </div>
+                    
+                </div>
+                <! -- sağ taraf -- >
+                <div class="col-9">
+                    <! -- isim kısmı -->
+                    <div class="row mt-3 ms-3">
+                        
+                        {{ laptop.laptop.marka }} {{ laptop.laptop.modelAdi }}
+                        {{ laptop.laptop.cpuGen }} {{ laptop.laptop.cpuType }}
+                        {{ laptop.laptop.ramCap }} {{ laptop.laptop.diskCap }} {{ laptop.laptop.diskType }}
+                        {{ laptop.laptop.ekran }} {{ laptop.laptop.oSystem }}
+                        
+                    </div>
+                    <! -- deal kısmı -->
+                    <div class="row mt-3">
+                        {% for deal in laptop.deals %}
+                            <div class="row mt-2">
+                                <a href={{ deal.URL }} target='_blank'><button class="btn btn-outline-success bg-white text-success" type="submit">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            {% if deal.site == "Trendyol" %}
+                                                <img src="{% static 'images/trendyol-logo.png' %}" alt="" class="img-fluid">
+                                            {% endif %}
+                                            {% if deal.site == "n11" %}
+                                                <img src="{% static 'images/n11-logo.png' %}" alt="" class="img-fluid">
+                                            {% endif %}
+                                            {% if deal.site == "Vatan" %}
+                                                <img src="{% static 'images/vatan-logo.png' %}" alt="" class="img-fluid">
+                                            {% endif %}
+                                        </div>
+                                        <div class="col-5">
+                                            {{ deal.fiyat }} TL
+                                        
+                                        </div>
+                                        <div class="col-4">
+                                            Puan: {{ deal.puan }}
+                                        
+                                        </div>
+                                    </div>
+                                </button></a>
+                                
+                            </div>
+                        {% endfor %}
+                    </div>
+                    
+                </div>
+            </div>
+            <! -- özellik alanı -- >
+            <div class="row">
+
+            </div>
+        </div>
+
+    {% endfor %}
+
+{% endblock content %}

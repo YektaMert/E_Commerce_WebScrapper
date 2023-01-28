@@ -1,0 +1,90 @@
+{% load static %}
+
+
+<div class=" card mt-2 bg-white">
+    <h6 class="p-1 border-bottom">Markalar</h6>
+
+    <ul>
+        {% for record in filtreler.marka%}
+            <li><a href="{% url 'filter' 'marka' record.deger %}">{{record.deger}}</a></li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+<div class="card mt-1 bg-light">
+    <h6 class="p-1 border-bottom">İşletim Sistemi</h6>
+
+    <ul>
+        {% for record in filtreler.oSystem%}
+            <li><a href="{% url 'filter' 'oSystem' record.deger %}">{{record.deger}}</a></li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+<div class="card mt-1 bg-light">
+    <h6 class="p-1 border-bottom">CPU Tipi</h6>
+
+    <ul>
+        {% for record in filtreler.cpuType%}
+            <li><a href="{% url 'filter' 'cpuType' record.deger %}">{{record.deger}}</a></li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+<div class="card mt-1 bg-light">
+    <h6 class="p-1 border-bottom">CPU Nesli</h6>
+
+    <ul>
+        {% for record in filtreler.cpuGen%}
+            <li><a href="{% url 'filter' 'cpuGen' record.deger %}">{{record.deger}}</a></li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+<div class="card mt-1 bg-light">
+    <h6 class="p-1 border-bottom">Ram Kapasitesi</h6>
+
+    <ul>
+        {% for record in filtreler.ramCap%}
+            <li><a href="{% url 'filter' 'ramCap' record.deger %}">{{record.deger}}</a></li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+<div class="card mt-1 bg-light">
+    <h6 class="p-1 border-bottom">Disk Kapasitesi</h6>
+
+    <ul>
+        {% for record in filtreler.diskCap%}
+            <li><a href="{% url 'filter' 'diskCap' record.deger %}">{{record.deger}}</a></li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+<div class="card mt-1 bg-light">
+    <h6 class="p-1 border-bottom">Disk Tipi</h6>
+
+    <ul>
+        {% for record in filtreler.diskType%}
+            <li><a href="{% url 'filter' 'diskType' record.deger %}">{{record.deger}}</a></li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+<div class="card mt-1 bg-light">
+    <h6 class="p-1 border-bottom">Ekran Boyutu</h6>
+
+    <ul>
+        {% for record in filtreler.ekran%}
+            <li><a href="{% url 'filter' 'ekran' record.deger %}">{{record.deger}}</a></li>
+        {% endfor %}
+    </ul>
+
+</div>

@@ -1,0 +1,49 @@
+{% load static%}
+
+<! -- laptop body -- >
+<div class="card mb-2">
+    <div class="row">
+        <! -- laptop resmi -- >
+        <div class="col-md-2">
+            {% for deal in laptoppack.deals %}
+                <img style="max-width:200px" src={{ deal.foto }}></img>
+            {% endfor %}
+        </div>
+        <! -- laptop ad/site/fiyat alanı -- >
+        <div class="col-md-10">
+            <div class="card-body">
+                <! -- laptop ad -- >
+                <h6>
+                    {% load tagger %}
+                    {% underscoreTag laptoppack.laptop "_id" as id %}
+                    <a href="{% url 'pPage' id %}" target='_blank'>
+                        {{ laptoppack.laptop.marka }} {{ laptoppack.laptop.modelAdi }}
+                        {{ laptoppack.laptop.cpuGen }} {{ laptoppack.laptop.cpuType }}
+                        {{ laptoppack.laptop.ramCap }} {{ laptoppack.laptop.diskCap }} {{ laptoppack.laptop.diskType }}
+                        {{ laptoppack.laptop.ekran }} {{ laptoppack.laptop.oSystem }}
+                        
+                    </a>
+                </h6>
+                <! -- fiyat/site alanı -- >
+                <div class="row">
+                    {% for deal in laptoppack.deals %}
+                        <div class="col-3">
+                            {{ deal.fiyat }} TL
+                            <a href={{ deal.URL }} target='_blank'><button class="btn btn-outline-success" type="submit">
+                                {% if deal.site == "Trendyol" %}
+                                    <img src="{% static 'images/trendyol-logo.png' %}" alt="" class="img-fluid">
+                                {% endif %}
+                                {% if deal.site == "n11" %}
+                                    <img src="{% static 'images/n11-logo.png' %}" alt="" class="img-fluid">
+                                {% endif %}
+                                {% if deal.site == "Vatan" %}
+                                    <img src="{% static 'images/vatan-logo.png' %}" alt="" class="img-fluid">
+                                {% endif %}
+                            </button></a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

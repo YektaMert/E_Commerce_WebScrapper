@@ -1,0 +1,33 @@
+{% extends 'productListPage/main.html'%}
+{% load static %}
+
+{% block content %}
+    <div class="conteiner-fluid">
+        <div class="row">
+            <! -- admin data seçenekleri -->
+            <div class="col-5">
+                <ul>
+                    <li>
+                        <a href="fiyatUpdate">Notebook Fiyat Değiştirme</a>
+                    </li>
+                    <li>
+                        <a href="notebookDelete">Notebook Kaldırma</a>
+                    </li>
+                    <li>
+                        <a href="notebookAdd">Notebook Ekle</a>
+                    </li>
+                    <li>
+                        <a href="puanUpdate">Notebook Puan Değiştirme</a>
+                    </li>
+                    <li>
+                        <a href="notebookUpdate">Notebook Bilgi Güncelle</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-7">
+                Alanadi
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

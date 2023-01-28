@@ -1,0 +1,16 @@
+{% load static %}
+
+<nav class="navbar bg-light">
+    <div class="container-fluid">
+      <form action="{% url 'search' %}" method="GET" class="d-flex" role="search">
+        <input class="form-control me-2" type="search" id="search" name="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      <div class="card bg-info ms-2">
+        <div class="row">
+          <a href="{% url 'admininitial' %}">Admin</a>
+        </div>
+      </div>
+    </div>
+    
+</nav>
